@@ -7,30 +7,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Globe } from "lucide-react"
 import { useState } from "react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import Header from "@/components/ui/Header"
+import Footer from "@/components/ui/Footer"
 
 export default function HomePage() {
   const [isCompactCarsOpen, setIsCompactCarsOpen] = useState(false)
+  const [isSUVsOpen, setIsSUVsOpen] = useState(false)
+  const [isVansWagonsOpen, setIsVansWagonsOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center">
-            <Image src="/images/logo.png" alt="Suzuki Logo" width={30} height={30} />
-            <span className="ml-2 text-xl font-bold">Suzuki Premier Motors</span>
-          </Link>
-          <nav className="hidden md:flex space-x-4">
-            {["Vehicles", "Motorcycles", "Marine", "Power Products", "Owners", "Dealers"].map((item) => (
-              <Button key={item} variant="ghost" className="text-gray-600 hover:text-gray-900">
-                {item}
-              </Button>
-            ))}
-            <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
-              <Globe className="w-5 h-5" />
-            </Button>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="container mx-auto px-4 py-8">
         <section className="mb-8">
@@ -120,7 +107,6 @@ export default function HomePage() {
                     { name: "Suzuki Swift", description: "Sporty and stylish hatchback" },
                     { name: "Suzuki Cultus", description: "Fuel-efficient and practical" },
                     { name: "Suzuki Alto", description: "Compact and budget-friendly" },
-                    { name: "Suzuki Wagon R", description: "Spacious interior with compact exterior" },
                   ].map((car, index) => (
                     <div key={index} className="flex flex-col">
                       <h4 className="font-semibold">{car.name}</h4>
@@ -131,35 +117,99 @@ export default function HomePage() {
               </DialogContent>
             </Dialog>
 
-            {[
-              { title: "SUVs", image: "/images/home/suv.png", description: "Ideal for family adventures" },
-              { title: "Vans & Wagons", image: "/images/home/van.png", description: "Spacious and versatile" },
-            ].map((category, index) => (
-              <Card 
-                key={index} 
-                className="overflow-hidden group cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md"
-              >
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={category.image}
-                      alt={category.title}
-                      width={300}
-                      height={200}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 bg-white transition-colors duration-300 group-hover:bg-gray-50">
-                    <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-blue-600 leading-tight">
-                      {category.title}
-                    </h3>
-                    <p className="text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700 leading-relaxed">
-                      {category.description}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            <Dialog open={isSUVsOpen} onOpenChange={setIsSUVsOpen}>
+              <DialogTrigger asChild>
+                <Card 
+                  className="overflow-hidden group cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md"
+                >
+                  <CardContent className="p-0">
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src="/images/home/suv.png"
+                        alt="SUVs"
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 bg-white transition-colors duration-300 group-hover:bg-gray-50">
+                      <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-blue-600 leading-tight">
+                        SUVs
+                      </h3>
+                      <p className="text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700 leading-relaxed">
+                        Ideal for family adventures
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Suzuki SUVs</DialogTitle>
+                  <DialogDescription>
+                    Discover our range of SUVs perfect for family adventures.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  {[
+                    { name: "Suzuki Vitara", description: "Stylish and capable SUV" },
+                    { name: "Suzuki Jimny", description: "Compact and rugged off-roader" },
+                  ].map((suv, index) => (
+                    <div key={index} className="flex flex-col">
+                      <h4 className="font-semibold">{suv.name}</h4>
+                      <p className="text-sm text-gray-500">{suv.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+
+            <Dialog open={isVansWagonsOpen} onOpenChange={setIsVansWagonsOpen}>
+              <DialogTrigger asChild>
+                <Card 
+                  className="overflow-hidden group cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md"
+                >
+                  <CardContent className="p-0">
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src="/images/home/van.png"
+                        alt="Vans & Wagons"
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 bg-white transition-colors duration-300 group-hover:bg-gray-50">
+                      <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-blue-600 leading-tight">
+                        Vans & Wagons
+                      </h3>
+                      <p className="text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700 leading-relaxed">
+                        Spacious and versatile
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Suzuki Vans & Wagons</DialogTitle>
+                  <DialogDescription>
+                    Check out our spacious and versatile vans and wagons.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  {[
+                    { name: "Suzuki Every", description: "Practical and spacious van" },
+                    { name: "Suzuki Wagon R", description: "Compact yet roomy wagon" },
+                  ].map((van, index) => (
+                    <div key={index} className="flex flex-col">
+                      <h4 className="font-semibold">{van.name}</h4>
+                      <p className="text-sm text-gray-500">{van.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </section>
 
@@ -170,17 +220,14 @@ export default function HomePage() {
                 <h2 className="text-xl font-bold">Browse Catalogue</h2>
                 <p className="text-sm text-blue-500">Explore our full range of vehicles and find the perfect match for you</p>
               </div>
-              <Button variant="default" className="bg-blue-500 hover:bg-blue-600">View Catalogue</Button>
+              <Link href="/vehicles">
+                <Button variant="default" className="bg-blue-500 hover:bg-blue-600">View Catalogue</Button>
+              </Link>
             </div>
           </Card>
         </section>
       </main>
-
-      <footer className="bg-gray-100 py-8">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-gray-600">&copy; 2023 Suzuki Motors Pakistan. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
