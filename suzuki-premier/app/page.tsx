@@ -1,10 +1,16 @@
+"use client";
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Globe } from "lucide-react"
+import { useState } from "react"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 export default function HomePage() {
+  const [isCompactCarsOpen, setIsCompactCarsOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-white shadow-sm">
@@ -76,8 +82,56 @@ export default function HomePage() {
             range of vehicles to suit your needs. Explore our lineup and find your perfect match today.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Dialog open={isCompactCarsOpen} onOpenChange={setIsCompactCarsOpen}>
+              <DialogTrigger asChild>
+                <Card 
+                  className="overflow-hidden group cursor-pointer transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md"
+                >
+                  <CardContent className="p-0">
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src="/images/home/compact-car.png"
+                        alt="Compact Cars"
+                        width={300}
+                        height={200}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6 bg-white transition-colors duration-300 group-hover:bg-gray-50">
+                      <h3 className="text-2xl font-semibold mb-3 transition-colors duration-300 group-hover:text-blue-600 leading-tight">
+                        Compact Cars
+                      </h3>
+                      <p className="text-base text-gray-600 transition-colors duration-300 group-hover:text-gray-700 leading-relaxed">
+                        Perfect for city driving
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>Suzuki Compact Cars</DialogTitle>
+                  <DialogDescription>
+                    Explore our range of compact cars perfect for city driving.
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                  {[
+                    { name: "Suzuki Swift", description: "Sporty and stylish hatchback" },
+                    { name: "Suzuki Cultus", description: "Fuel-efficient and practical" },
+                    { name: "Suzuki Alto", description: "Compact and budget-friendly" },
+                    { name: "Suzuki Wagon R", description: "Spacious interior with compact exterior" },
+                  ].map((car, index) => (
+                    <div key={index} className="flex flex-col">
+                      <h4 className="font-semibold">{car.name}</h4>
+                      <p className="text-sm text-gray-500">{car.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+
             {[
-              { title: "Compact Cars", image: "/images/home/compact-car.png", description: "Perfect for city driving" },
               { title: "SUVs", image: "/images/home/suv.png", description: "Ideal for family adventures" },
               { title: "Vans & Wagons", image: "/images/home/van.png", description: "Spacious and versatile" },
             ].map((category, index) => (
@@ -113,10 +167,10 @@ export default function HomePage() {
           <Card className="p-4">
             <div className="flex justify-between items-center">
               <div>
-                <h2 className="text-xl font-bold">Suzuki News</h2>
-                <p className="text-sm text-blue-500">Stay up to date with the latest news and events from Suzuki Pakistan</p>
+                <h2 className="text-xl font-bold">Browse Catalogue</h2>
+                <p className="text-sm text-blue-500">Explore our full range of vehicles and find the perfect match for you</p>
               </div>
-              <Button variant="default" className="bg-blue-500 hover:bg-blue-600">View All</Button>
+              <Button variant="default" className="bg-blue-500 hover:bg-blue-600">View Catalogue</Button>
             </div>
           </Card>
         </section>
