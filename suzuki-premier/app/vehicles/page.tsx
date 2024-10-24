@@ -2,18 +2,18 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Globe, Plus } from "lucide-react"
+import { Globe } from "lucide-react"
 import Footer from "@/components/ui/Footer" // Import the Footer component
 import Header from "@/components/ui/Header" // Import the Header component
 
 const carData = [
-  { id: 1, name: "Swift Sport", price: "From $23,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 2, name: "Swift Hybrid", price: "From $19,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 3, name: "Ciaz", price: "From $22,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 4, name: "Vitara", price: "From $26,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 5, name: "Jimny", price: "From $21,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 6, name: "Bolan", price: "From $15,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
-  { id: 7, name: "APV", price: "From $18,000", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-aMfGUOEW2sMP7p8sMWD968q8FGxfYw.png" },
+  { id: 1, name: "Swift", price: "From $23,000", image: "/images/vehicles/swift.png" },
+  { id: 2, name: "Alto", price: "From $19,000", image: "/images/vehicles/alto.png" },
+  { id: 3, name: "Cultus", price: "From $22,000", image: "/images/vehicles/cultus.png" },
+  { id: 4, name: "Vitara", price: "From $26,000", image: "/images/vehicles/vitara.png" },
+  { id: 5, name: "Jimny", price: "From $21,000", image: "/images/vehicles/jimny.png" },
+  { id: 6, name: "Every", price: "From $15,000", image: "/images/vehicles/every.png" },
+  { id: 7, name: "Wagon R", price: "From $18,000", image: "/images/vehicles/wagonr.png" },
 ]
 
 export default function CarCatalogue() {
@@ -44,16 +44,6 @@ export default function CarCatalogue() {
                     className="w-full bg-white text-black hover:bg-gray-100"
                   >
                     View Details
-                  </Button>
-                </div>
-                <div className="absolute top-2 right-2">
-                  <Button
-                    size="icon"
-                    variant="secondary"
-                    className="rounded-full w-8 h-8 bg-white/80 hover:bg-white transition-colors duration-300"
-                  >
-                    <Plus className="h-4 w-4" />
-                    <span className="sr-only">View Details</span>
                   </Button>
                 </div>
               </CardContent>
