@@ -35,7 +35,9 @@ export default function HomePage() {
                 We're excited to introduce the new Suzuki Swift, now with a 1197cc engine. With a modern design and advanced
                 features, Swift is the perfect car for on & off city driving.
               </p>
-              <Button className="w-32 bg-white text-black hover:bg-gray-100">Learn More</Button>
+              <Link href="/vehicles">
+                <Button className="w-32 bg-white text-black hover:bg-gray-100">Learn More</Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -95,10 +97,10 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg transition-transform transform-gpu duration-300">
                 <DialogHeader>
-                  <DialogTitle>Suzuki Compact Cars</DialogTitle>
-                  <DialogDescription>
+                  <DialogTitle className="text-2xl font-bold text-black">Suzuki Compact Cars</DialogTitle>
+                  <DialogDescription className="text-gray-700">
                     Explore our range of compact cars perfect for city driving.
                   </DialogDescription>
                 </DialogHeader>
@@ -108,9 +110,9 @@ export default function HomePage() {
                     { name: "Suzuki Cultus", description: "Fuel-efficient and practical" },
                     { name: "Suzuki Alto", description: "Compact and budget-friendly" },
                   ].map((car, index) => (
-                    <div key={index} className="flex flex-col">
-                      <h4 className="font-semibold">{car.name}</h4>
-                      <p className="text-sm text-gray-500">{car.description}</p>
+                    <div key={index} className="flex flex-col p-4 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 transition-colors duration-300">
+                      <h4 className="font-semibold text-lg text-black">{car.name}</h4>
+                      <p className="text-sm text-gray-600">{car.description}</p>
                     </div>
                   ))}
                 </div>
@@ -143,10 +145,10 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg transition-transform transform-gpu duration-300">
                 <DialogHeader>
-                  <DialogTitle>Suzuki SUVs</DialogTitle>
-                  <DialogDescription>
+                  <DialogTitle className="text-2xl font-bold text-black">Suzuki SUVs</DialogTitle>
+                  <DialogDescription className="text-gray-700">
                     Discover our range of SUVs perfect for family adventures.
                   </DialogDescription>
                 </DialogHeader>
@@ -155,9 +157,9 @@ export default function HomePage() {
                     { name: "Suzuki Vitara", description: "Stylish and capable SUV" },
                     { name: "Suzuki Jimny", description: "Compact and rugged off-roader" },
                   ].map((suv, index) => (
-                    <div key={index} className="flex flex-col">
-                      <h4 className="font-semibold">{suv.name}</h4>
-                      <p className="text-sm text-gray-500">{suv.description}</p>
+                    <div key={index} className="flex flex-col p-4 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 transition-colors duration-300">
+                      <h4 className="font-semibold text-lg text-black">{suv.name}</h4>
+                      <p className="text-sm text-gray-600">{suv.description}</p>
                     </div>
                   ))}
                 </div>
@@ -190,10 +192,10 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
+              <DialogContent className="sm:max-w-[425px] bg-white rounded-lg shadow-lg transition-transform transform-gpu duration-300">
                 <DialogHeader>
-                  <DialogTitle>Suzuki Vans & Wagons</DialogTitle>
-                  <DialogDescription>
+                  <DialogTitle className="text-2xl font-bold text-black">Suzuki Vans & Wagons</DialogTitle>
+                  <DialogDescription className="text-gray-700">
                     Check out our spacious and versatile vans and wagons.
                   </DialogDescription>
                 </DialogHeader>
@@ -202,9 +204,9 @@ export default function HomePage() {
                     { name: "Suzuki Every", description: "Practical and spacious van" },
                     { name: "Suzuki Wagon R", description: "Compact yet roomy wagon" },
                   ].map((van, index) => (
-                    <div key={index} className="flex flex-col">
-                      <h4 className="font-semibold">{van.name}</h4>
-                      <p className="text-sm text-gray-500">{van.description}</p>
+                    <div key={index} className="flex flex-col p-4 bg-gray-100 rounded-md shadow-sm hover:bg-gray-200 transition-colors duration-300">
+                      <h4 className="font-semibold text-lg text-black">{van.name}</h4>
+                      <p className="text-sm text-gray-600">{van.description}</p>
                     </div>
                   ))}
                 </div>
